@@ -1,94 +1,136 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO Meta Tags Primari -->
-    <title>Prenota una Consulenza Strategica | trasformazione.it</title>
-    <meta name="description" content="Richiedi una sessione di consulenza strategica su misura per la tua crescita professionale e aziendale. Pianifica il tuo percorso di trasformazione.">
-    <link rel="canonical" href="https://www.trasformazione.it/consulenza.html">
-
-    <!-- Open Graph / Social Sharing -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.trasformazione.it/consulenza.html">
-    <meta property="og:title" content="Prenota una Consulenza Strategica | trasformazione.it">
-    <meta property="og:description" content="Richiedi una sessione di consulenza strategica su misura. Pianifica il tuo percorso di trasformazione.">
-    <meta property="og:image" content="https://www.trasformazione.it/assets/consulenza-dialogo.webp">
-
-    <!-- Favicon & Styles -->
-    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Consulenza individuale con i Tarocchi — Trasformazione</title>
+  <meta name="description" content="Esplora un progetto, una scelta, un cambiamento o una relazione con i Tarocchi di Marsiglia, il Metodo Arianna e il dialogo.">
+  <meta name="theme-color" content="#174c49">
+  <meta property="og:title" content="Consulenza individuale con i Tarocchi — Trasformazione">
+  <meta property="og:description" content="Dalle immagini alle scelte: una consulenza individuale con i Tarocchi di Marsiglia e il dialogo.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css?v=3">
+  <script src="assets/site.js" defer></script>
+  <style>
+    .consult-hero{display:grid;grid-template-columns:.92fr 1.08fr;align-items:center;gap:30px;padding:20px 0 22px}
+    .consult-hero .hero-copy{position:static;z-index:auto;margin:0;padding:10px 0;max-width:none}
+    .consult-hero h1{max-width:600px}
+    .consult-hero .service-lead{font-size:21px;line-height:1.4;max-width:560px}
+    .consult-hero .service-visual img{width:100%;aspect-ratio:3/2;object-fit:cover}
+    .service-caption{margin:8px 0 0;font-size:10px;letter-spacing:1.6px;color:#52615c}
+    .intro-copy{max-width:780px;padding:0 0 20px}
+    .intro-copy p{font-size:18px;line-height:1.6}
+    .consult-method{background:#e8eee6;padding:24px 0;margin:0 0 10px}
+    .consult-method .method-layout img{aspect-ratio:3/2;object-fit:cover}
+    .consult-method .steps li:last-child{border-bottom:0}
+    .consult-method .section-heading{margin-bottom:14px}
+    .consult-method .method-intro{margin-bottom:14px}
+    .consult-method .method-layout{gap:22px}
+    .consult-method .steps li{padding-bottom:9px;margin-bottom:9px}
+    .psychomagic{padding:16px 0 24px;align-items:center}
+    .psychomagic img{aspect-ratio:3/2;object-fit:cover}
+    .psychomagic .section-copy{max-width:620px}
+    .cases{padding:8px 0 26px}
+    .case-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .case-card{border-top:1px solid #a6bab1;padding-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}
+    .case-card img{width:100%;aspect-ratio:3/2;object-fit:cover}
+    .case-card .eyebrow{margin-bottom:8px;color:#41665c}
+    .case-card h3{font-size:22px;margin-bottom:9px}
+    .case-card p:not(.eyebrow){font-size:15px;line-height:1.5;color:#52615c}
+    .case-note{margin-top:22px;color:#52615c;font-size:13px}
+    .consult-cta{background:#174c49;color:#fff;padding:22px 0}
+    .consult-cta .wrap{display:flex;justify-content:space-between;align-items:center;gap:24px}
+    .consult-cta h2{font-size:clamp(29px,3vw,42px);margin:0 0 8px}
+    .consult-cta p{margin:0;color:#e0e8e1}
+    .consult-cta .button{background:#ecede0;color:#173f3b;white-space:nowrap}
+    @media(max-width:900px){.consult-hero{grid-template-columns:1fr 1fr;gap:25px}.case-card{grid-template-columns:1fr}.case-card img{order:0}}
+    @media(max-width:640px){.consult-hero{grid-template-columns:1fr;gap:14px;padding:16px 0 20px}.consult-hero h1{font-size:38px}.consult-hero .service-lead{font-size:19px}.consult-hero .service-visual{grid-row:1}.consult-hero .hero-copy{grid-row:2}.intro-copy{padding:0 0 24px}.intro-copy p{font-size:16px}.consult-method{padding:18px 0;margin:0 0 8px}.consult-method .method-layout{grid-template-columns:1fr}.psychomagic{grid-template-columns:1fr;padding:12px 0 18px}.psychomagic>img{grid-row:1}.case-grid{grid-template-columns:1fr;gap:16px}.case-card{grid-template-columns:1fr;gap:12px}.case-card img{aspect-ratio:16/9}.case-card h3{font-size:20px}.consult-cta .wrap{display:block}.consult-cta .button{margin-top:14px}}
+  </style>
 </head>
 <body>
+  <a class="skip" href="#contenuto">Vai al contenuto</a>
+  <header>
+    <a class="brand" href="./" aria-label="Trasformazione.it, home">Trasformazione.it<span>Tarot and Coaching</span></a>
+    <button class="menu-toggle" aria-controls="navigazione" aria-expanded="false" hidden>Menu <span aria-hidden="true">☰</span></button>
+    <nav id="navigazione" aria-label="Principale">
+      <a href="consulenza.html" aria-current="page">Consulenza</a><a href="index.html#metodo">Metodo</a><a href="index.html#leonardo">Leonardo</a><a href="index.html#formazione">Formazione</a><a href="index.html#libri">Libri</a><a class="nav-cta" href="index.html#contatti">Parliamone ↗</a>
+    </nav>
+  </header>
+  <main id="contenuto">
+    <section class="consult-hero wrap" aria-labelledby="titolo">
+      <div class="hero-copy">
+        <p class="eyebrow">CONSULENZA INDIVIDUALE CON I TAROCCHI</p>
+        <h1 id="titolo">Consulenza individuale<br>con i Tarocchi</h1>
+        <p class="service-lead">Dalle immagini alle scelte, con i Tarocchi di Marsiglia e il dialogo.</p>
+        <p>Esploriamo una situazione concreta: un progetto, una decisione, un cambiamento o una relazione. Partiamo dalla tua domanda e da ciò che le immagini fanno emergere per te.</p>
+        <a class="button" href="index.html#contatti">Parliamo della tua domanda <span aria-hidden="true">↗</span></a>
+        <a class="text-link" href="#come-si-svolge">Come si svolge il percorso ↓</a>
+      </div>
+      <div class="service-visual">
+        <img src="assets/consulenza-dialogo.webp" alt="Scena illustrativa: Leonardo ascolta una persona durante un dialogo con alcune carte dei Tarocchi di Marsiglia sul tavolo" width="1536" height="1024" fetchpriority="high">
+        <p class="service-caption">LEONARDO VALLI · SCENA ILLUSTRATIVA</p>
+      </div>
+    </section>
 
-    <!-- Header / Navigazione -->
-    <header>
-        <nav aria-label="Menu principale">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="consulenza.html" aria-current="page">Consulenza</a></li>
-                <li><a href="privacy.html">Privacy Policy</a></li>
-            </ul>
-        </nav>
-    </header>
+    <section class="intro-copy wrap">
+      <p class="eyebrow">DA DOVE VUOI PARTIRE?</p>
+      <h2>La tua domanda.<br>Un nuovo sguardo.</h2>
+      <p>Le carte non danno verdetti e non predicono un esito. Le osserviamo insieme, prima di interpretare: dettagli, gesti e relazioni tra le figure diventano spunti per collegare l’immagine alla tua esperienza. Il senso si costruisce nel dialogo; la scelta resta tua.</p>
+    </section>
 
-    <!-- Contenuto Principale -->
-    <main>
-        <section class="consulenza-hero">
-            <div class="container">
-                <h1>Consulenza Strategica e Orientamento</h1>
-                <p>Un confronto individuale e strutturato per analizzare le tue esigenze e definire insieme un piano d'azione personalizzato.</p>
-                <img src="assets/consulenza-dialogo.webp" alt="Incontro di consulenza strategica e dialogo professionale" loading="eager" width="800" height="450">
-            </div>
-        </section>
-
-        <!-- Sezione Form Richiesta -->
-        <section class="form-section">
-            <div class="container">
-                <h2>Richiedi Informazioni o Prenota una Sessione</h2>
-                <form action="grazie.html" method="GET" class="contact-form">
-                    <div class="form-group">
-                        <label for="nome">Nome e Cognome *</label>
-                        <input type="text" id="nome" name="nome" required placeholder="Inserisci il tuo nome">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email di Contatto *</label>
-                        <input type="email" id="email" name="email" required placeholder="name@example.com">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="servizio">Tipo di Consulenza Richiesta</label>
-                        <select id="servizio" name="servizio">
-                            <option value="orientamento">Orientamento Professionale</option>
-                            <option value="formazione">Formazione Mirata</option>
-                            <option value="strategia">Consulenza Strategica</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="messaggio">Messaggio *</label>
-                        <textarea id="messaggio" name="messaggio" rows="5" required placeholder="Descrivi le tue esigenze o i tuoi obiettivi..."></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary">Invia Richiesta</button>
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 trasformazione.it. Tutti i diritti riservati.</p>
-            <ul>
-                <li><a href="privacy.html">Privacy Policy</a></li>
-            </ul>
+    <section id="come-si-svolge" class="consult-method">
+      <div class="wrap">
+        <div class="section-heading">
+          <div><p class="eyebrow">IL METODO ARIANNA</p><h2>Dal Campo<br>a una Traccia.</h2></div>
+          <p>Osservare. Ascoltare.<br>Riconoscere ciò che risuona.</p>
         </div>
-    </footer>
+        <p class="method-intro">Il Metodo Arianna mette in relazione la domanda, le immagini dei Tarocchi e la situazione della persona. Procediamo con attenzione a ciò che vedi, alle associazioni che emergono e alle parole che senti vicine alla tua esperienza.</p>
+        <div class="method-layout">
+          <img src="assets/metodo-arianna.webp" alt="Quaderno e carte dei Tarocchi di Marsiglia durante un momento di osservazione e dialogo" width="1536" height="1024" loading="lazy">
+          <ol class="steps">
+            <li><h3>Aprire il Campo.</h3><p>Creiamo uno spazio di ascolto e mettiamo a fuoco il tema che desideri portare.</p></li>
+            <li><h3>Formulare la domanda.</h3><p>Partiamo dalla situazione concreta e troviamo insieme una domanda aperta, utile da esplorare.</p></li>
+            <li><h3>Guardare le immagini.</h3><p>Ci fermiamo sui dettagli delle carte prima di ricorrere a significati già conosciuti. Notiamo cosa attira il tuo sguardo.</p></li>
+            <li><h3>Esplorare la risonanza.</h3><p>Mettiamo in dialogo immagini, parole e associazioni con la tua esperienza, verificando cosa ha senso per te.</p></li>
+            <li><h3>Comporre una Traccia.</h3><p>Raccogliamo ciò che emerge in una parola, una domanda o un possibile passo concreto da portare con te.</p></li>
+          </ol>
+        </div>
+        <p class="method-note">Le carte aprono prospettive, non decidono al posto tuo. La Traccia nasce dalla persona e resta sua.</p>
+      </div>
+    </section>
 
-    <!-- Script principale -->
-    <script src="site.js" defer></script>
+    <section class="psychomagic split wrap" aria-labelledby="gesto-titolo">
+      <img src="assets/gesto-simbolico.webp" alt="Una persona scrive una parola su un foglio durante il dialogo con Leonardo" width="1536" height="1024" loading="lazy">
+      <div class="section-copy">
+        <p class="eyebrow">DAL SIMBOLO A UN GESTO POSSIBILE</p>
+        <h2 id="gesto-titolo">Quando la Traccia<br>prende forma.</h2>
+        <p>Se lo desideri, il percorso può includere un gesto simbolico ispirato agli atti di psicomagia di Alejandro Jodorowsky. Lo contestualizziamo rispetto alla tua domanda e lo costruiamo nel dialogo: può essere un modo personale per dare forma a un’intenzione o a un passaggio che vuoi esplorare.</p>
+        <p>È una possibilità facoltativa, mai un esercizio imposto o una promessa di risultato. La decisione di farlo, e il significato che gli attribuisci, restano tuoi.</p>
+      </div>
+    </section>
+
+    <section class="cases wrap" aria-labelledby="casi-titolo">
+      <div class="section-heading">
+        <div><p class="eyebrow">A CHI PUÒ ESSERE UTILE</p><h2 id="casi-titolo">Situazioni diverse.<br>Una domanda alla volta.</h2></div>
+        <p>Esempi per immaginare<br>come si può partire.</p>
+      </div>
+      <div class="case-grid">
+        <article class="case-card"><img src="assets/progetto-creativo.webp" alt="Un musicista condivide un progetto creativo con Leonardo" width="1536" height="1024" loading="lazy"><div><p class="eyebrow">PROGETTO CREATIVO</p><h3>«Ho un’idea, ma non riesco a darle forma.»</h3><p>Per esempio, una musicista ha una melodia in mente e vuole capire che cosa manca per esprimere ciò che desidera.</p></div></article>
+        <article class="case-card"><img src="assets/scelta-professionale.webp" alt="Una professionista riflette su una scelta lavorativa insieme a Leonardo" width="1536" height="1024" loading="lazy"><div><p class="eyebrow">SCELTA PROFESSIONALE</p><h3>«Sto pensando a un cambiamento.»</h3><p>Una persona valuta se restare nel proprio ruolo o esplorare una nuova direzione e vuole chiarire quali aspetti considerare.</p></div></article>
+        <article class="case-card"><img src="assets/relazione.webp" alt="Una persona parla della propria esperienza relazionale con Leonardo" width="1536" height="1024" loading="lazy"><div><p class="eyebrow">RELAZIONE</p><h3>«Vorrei capire meglio cosa sto vivendo.»</h3><p>Una persona desidera mettere a fuoco bisogni, aspettative e possibilità nel proprio modo di vivere una relazione.</p></div></article>
+        <article class="case-card"><img src="assets/laboratorio-progetto.webp" alt="Una donna progetta un laboratorio con Leonardo, tra quaderno e schede" width="1536" height="1024" loading="lazy"><div><p class="eyebrow">PROGETTO DA AVVIARE</p><h3>«Vorrei iniziare, ma da dove?»</h3><p>Per esempio, chi desidera proporre un laboratorio può esplorare cosa vuole offrire e quale primo passo è alla sua portata.</p></div></article>
+      </div>
+      <p class="case-note">Sono esempi illustrativi, non testimonianze di clienti. Ogni consulenza parte dalla situazione e dalle parole di chi la porta.</p>
+    </section>
+
+    <section class="consult-cta">
+      <div class="wrap"><div><h2>Da quale domanda vuoi partire?</h2><p>Raccontami in poche righe la situazione che desideri esplorare.</p></div><a class="button" href="index.html#contatti">Parliamone ↗</a></div>
+    </section>
+  </main>
+  <footer class="wrap">
+    <div><a class="brand" href="./">Trasformazione.it<span>Tarot and Coaching</span></a><p>Immagini. Parole. Possibilità.</p></div>
+    <div class="footer-links"><a href="index.html#metodo">Metodo</a><a href="index.html#contatti">Contatti</a><a href="privacy.html">Privacy e informazioni sul sito</a><span>© <span data-year>2026</span> Trasformazione</span></div>
+  </footer>
 </body>
 </html>
