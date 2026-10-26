@@ -93,3 +93,5 @@ footer{padding:24px 0}
  .contact-grid{gap:22px}
  .contact img{height:auto;aspect-ratio:3/2}
 }
+
+.training-offers{padding-bottom:55px}.training-offers>h2{font-size:clamp(30px,3vw,44px);margin-bottom:26px}.training-offers>.text-link{margin-top:26px}#contatti{padding:24px 0}#contatti .contact-grid{grid-template-columns:.8fr 1.2fr;gap:28px}@media(max-width:640px){.training-offers{padding-bottom:38px}.training-offers>h2{font-size:32px}#contatti{padding:25px 0}#contatti .contact-grid{grid-template-columns:1fr;gap:22px}}
