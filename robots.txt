@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.trasformazione.it/sitemap.xml
+Sitemap: https://trasformazione.it/sitemap.xml
