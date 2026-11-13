@@ -73,6 +73,22 @@
 .training-mini p{margin:10px 0 4px}
 @media(max-width:1000px){.offers-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:640px){.offers{padding-top:30px;padding-bottom:34px}.offers-grid{grid-template-columns:1fr;gap:10px}.offer-card{padding:17px;gap:8px}.method-compact{grid-template-columns:1fr;gap:16px;padding-top:32px;padding-bottom:32px}.training-offers{padding-top:30px;padding-bottom:34px}}
+</style><style>
+/* Evidenza commerciale: quattro offerte, nessuna sezione formativa duplicata */
+.offers{width:100%;max-width:none;background:#e7eeea;padding:56px max(4%,calc((100vw - 1320px)/2)) 68px;border-top:1px solid #d6e3dc;border-bottom:1px solid #d6e3dc}
+.offers>.eyebrow{color:#14514c;font-weight:700}
+.offers h2{font-size:clamp(38px,4vw,58px);letter-spacing:-.025em;margin:10px 0 14px;color:#173d39}
+.offers .offers-intro{font-size:clamp(17px,1.5vw,20px);max-width:850px;line-height:1.5;margin-bottom:30px;color:#344c47}
+.offers-grid{gap:16px}
+.offers .offer-card{border:1px solid #c1d4cc;border-top:5px solid #17645b;background:#fff;box-shadow:0 8px 22px rgba(16,65,58,.07);padding:25px 20px 22px;min-height:255px;transition:transform .2s ease,box-shadow .2s ease}
+.offers .offer-card:hover{transform:translateY(-3px);box-shadow:0 13px 28px rgba(16,65,58,.12)}
+.offers .offer-card .number{font-weight:700;color:#17645b;font-size:11px}
+.offers .offer-card h3{font-size:clamp(21px,1.9vw,26px);font-weight:700;color:#1b3732}
+.offers .offer-card p{font-size:15px;color:#40534c;line-height:1.5}
+.offers .offer-card a.text-link{display:inline-flex;align-items:center;justify-content:center;min-height:42px;margin-top:auto;padding:11px 12px;background:#17534d;color:#fff;text-decoration:none;font-weight:700;font-size:12px;line-height:1.3}
+.offers .offer-card a.text-link:hover,.offers .offer-card a.text-link:focus-visible{background:#0d3733;color:#fff}
+@media(max-width:1000px){.offers{padding:44px 4% 52px}.offers-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.offers{padding:34px 5% 42px}.offers-grid{grid-template-columns:1fr;gap:12px}.offers .offer-card{min-height:0;padding:20px;gap:10px}.offers .offer-card a.text-link{margin-top:7px}.offers .offers-intro{font-size:16px;margin-bottom:22px}.offers .offers-intro br{display:none}}
 </style></head>
 <body><a class="skip" href="#contenuto">Vai al contenuto</a><header><a class="brand" href="./" aria-label="Trasformazione.it, home">Trasformazione.it<span>Tarot and Coaching</span></a><button class="menu-toggle" aria-controls="navigazione" aria-expanded="false" hidden>Menu <span aria-hidden="true">☰</span></button><nav id="navigazione" aria-label="Principale"><a href="consulenza.html">Consulenza</a><a href="#metodo">Metodo</a><a href="#paolo">Paolo</a><a href="#formazione">Formazione</a><a href="#libri">Libri</a><a class="nav-cta" href="#contatti">Parliamone ↗</a></nav></header>
 <main id="contenuto"><section class="hero service-hero" aria-labelledby="titolo">
@@ -95,8 +111,8 @@
 <p class="offers-intro">Coaching Tarologico, un percorso di formazione o un progetto per la tua organizzazione.<br>Scopri come possiamo lavorare insieme.</p>
 <div class="offers-grid">
 <article class="offer-card"><span class="number">01 / INDIVIDUALE</span><h3>Coaching Tarologico</h3><p>Incontri individuali per esplorare domande, scelte e possibilità.</p><a class="text-link" href="consulenza.html">Scopri il Coaching Tarologico ↗</a></article>
-<article class="offer-card"><span class="number">02 / PERCORSI</span><h3>Formazione</h3><p>Corsi e laboratori sul Metodo Arianna e i Tarocchi di Marsiglia.</p><a class="text-link" href="#formazione">Scopri i percorsi ↗</a></article>
-<article class="offer-card"><span class="number">03 / ORGANIZZAZIONI</span><h3>Aziende e gruppi</h3><p>Laboratori e attività su misura per comunicazione e lavoro di gruppo.</p><a class="text-link" href="#contatti">Richiedi una proposta ↗</a></article>
+<article class="offer-card" id="formazione"><span class="number">02 / PERCORSI</span><h3>Formazione</h3><p>Corsi e laboratori sul Metodo Arianna e i Tarocchi di Marsiglia.</p><a class="text-link" href="#contatti">Richiedi informazioni ↗</a></article>
+<article class="offer-card" id="organizzazioni"><span class="number">03 / ORGANIZZAZIONI</span><h3>Aziende e gruppi</h3><p>Laboratori e attività su misura per comunicazione e lavoro di gruppo.</p><a class="text-link" href="#contatti">Richiedi una proposta ↗</a></article>
 <article class="offer-card"><span class="number">04 / PUBBLICAZIONI</span><h3>Libri</h3><p>Tre pubblicazioni su Tarocchi, immagini e linguaggio.</p><a class="text-link" href="#libri">Scopri i libri ↗</a></article>
 </div></section>
 <section id="metodo" class="method"><div class="wrap method-compact">
@@ -106,11 +122,6 @@
 <img src="assets/paolo-carta.webp" alt="Paolo Musetti osserva una carta decorata" width="1536" height="1024" loading="lazy">
 </div></section>
 <section id="paolo" class="split wrap profile"><div class="section-copy"><p class="eyebrow">CHI TI ACCOMPAGNA</p><h2>Paolo Musetti.</h2><p class="lead">Immagini, ascolto e domande per esplorare progetti, scelte e cambiamenti.</p><p class="disclosure">Le consulenze sono seguite personalmente. Le scene del sito sono immagini illustrative elaborate digitalmente.</p><a class="text-link" href="#contatti">Parliamone ↗</a></div><img src="assets/paolo-ritratto.webp" alt="Ritratto di Paolo Musetti davanti a una biblioteca" width="1536" height="1024" loading="lazy"></section>
-<section id="formazione" class="training-offers wrap"><p class="eyebrow">FORMAZIONE E ORGANIZZAZIONI</p><h2>Imparare attraverso l’esperienza.</h2><p class="offers-intro">Tre proposte, personalizzabili in base ai partecipanti e agli obiettivi.</p><div class="training-mini">
-<details><summary>Tarocchi e coaching</summary><p>Metodo Arianna: immagini, domande e costruzione di una Traccia.</p></details>
-<details><summary>Immagini e problem solving</summary><p>Laboratori per esplorare situazioni e confrontare prospettive.</p></details>
-<details><summary>Team building con la tarologia</summary><p>Attività per ascolto, comunicazione e collaborazione nei gruppi.</p></details></div>
-<a class="text-link" href="#contatti">Richiedi una proposta formativa ↗</a></section>
 <section id="libri" class="books wrap"><div class="section-heading"><div><p class="eyebrow">LIBRI E RICERCA</p><h2>I nostri libri</h2></div><p>Tre libri sul rapporto tra immagini,<br>parole e significato.</p></div><div class="book-list"><article><span class="book-index">01</span><div><p class="eyebrow">PAOLO MUSETTI · 2026</p><h3>TAROT — Il Metodo Arianna</h3><p class="subtitle">Tarocchi, simbolo, rito e corpo: dal significato alla Traccia.</p><p>Un percorso che mette in relazione domanda, immagine, osservazione ed esperienza personale.</p></div><a href="https://www.amazon.it/dp/B0H6354LLS" target="_blank" rel="noopener noreferrer" aria-label="TAROT — Il Metodo Arianna su Amazon, nuova scheda">Scopri su Amazon ↗</a></article><article><span class="book-index">02</span><div><p class="eyebrow">PAOLO MUSETTI · 2026</p><h3>Guarda la Carta</h3><p class="subtitle">Il metodo Occhi di Bambino per osservare i Tarocchi prima di interpretarli.</p><p>Un invito a partire da ciò che vedi: dettagli, relazioni e domande, prima dei significati già conosciuti.</p></div><a href="https://www.amazon.it/dp/B0H6C194GN" target="_blank" rel="noopener noreferrer" aria-label="Guarda la Carta su Amazon, nuova scheda">Scopri su Amazon ↗</a></article><article><span class="book-index">03</span><div><p class="eyebrow">PAOLO ABOZZI · 2026</p><h3>Logos e Risonanza</h3><p class="subtitle">La Traccia della Parola.</p><p>Una ricerca sul linguaggio, sulla risonanza corporea e sull’osservazione nel lavoro maieutico.</p></div><a href="https://amzn.eu/d/01r9u4FE" target="_blank" rel="noopener noreferrer" aria-label="Logos e Risonanza su Amazon, nuova scheda">Scopri su Amazon ↗</a></article></div></section>
 
 <section id="contatti" class="contact">
