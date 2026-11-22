@@ -33,7 +33,8 @@
 .consult-situations-grid p{font-size:16px;line-height:1.5;margin:0;color:#40534c}
 @media(max-width:900px){.consult-situations-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:640px){.consult-situations-grid{grid-template-columns:1fr;gap:10px;margin:18px 0}.consult-situations-grid li{padding:14px}}
-</style></head>
+</style><link rel="stylesheet" href="/assets/whatsapp-float.css">
+</head>
 <body>
 <a class="skip" href="#contenuto">Vai al contenuto</a>
 <header>
@@ -98,4 +99,5 @@
 <script>
 document.querySelectorAll('[data-service]').forEach(link=>link.addEventListener('click',()=>{const topic=document.getElementById('contact-topic');topic.value=link.dataset.service;}));
 </script>
+<script src="/assets/whatsapp-float.js"></script>
 </body></html>
