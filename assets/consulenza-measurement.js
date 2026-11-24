@@ -7,6 +7,7 @@
   let preference;
   let tagStarted = false;
   let leadEventSent = false;
+  let leadSuccess = document.body.dataset.leadSuccess === 'true';
 
   try {
     preference = localStorage.getItem(preferenceKey);
@@ -15,7 +16,7 @@
   }
 
   function sendLeadOnce() {
-    if (preference !== 'granted' || !tagStarted || leadEventSent) return;
+    if (!leadSuccess || preference !== 'granted' || !tagStarted || leadEventSent) return;
     try {
       if (sessionStorage.getItem(leadEventKey) === '1') return;
       sessionStorage.setItem(leadEventKey, '1');
@@ -99,8 +100,7 @@
 
   if (preference === 'granted') startTag();
   if (panel) panel.hidden = preference === 'granted' || preference === 'denied';
-
-  if (document.body.dataset.leadSuccess === 'true') sendLeadOnce();
+  sendLeadOnce();
 
   const form = document.querySelector('.contact-form');
   if (!form) return;
@@ -127,6 +127,7 @@
 
       form.reset();
       status.textContent = 'Richiesta inviata. Ti risponderò via email.';
+      leadSuccess = true;
       sendLeadOnce();
     } catch {
       status.textContent = 'Invio non confermato. Controlla la connessione prima di riprovare.';
