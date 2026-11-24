@@ -15,16 +15,29 @@
     // The choice can still apply to this page if storage is unavailable.
   }
 
-  function sendLeadOnce() {
-    if (!leadSuccess || preference !== 'granted' || !tagStarted || leadEventSent) return;
+  function sendLeadOnce(onComplete) {
+    const complete = () => {
+      if (typeof onComplete === 'function') onComplete();
+    };
+    if (!leadSuccess || preference !== 'granted' || !tagStarted || leadEventSent) {
+      complete();
+      return;
+    }
     try {
-      if (sessionStorage.getItem(leadEventKey) === '1') return;
+      if (sessionStorage.getItem(leadEventKey) === '1') {
+        complete();
+        return;
+      }
       sessionStorage.setItem(leadEventKey, '1');
     } catch {
       // Prevent duplicate events within this page if session storage is unavailable.
     }
     leadEventSent = true;
-    window.gtag('event', 'generate_lead', { send_to: measurementId });
+    window.gtag('event', 'generate_lead', {
+      send_to: measurementId,
+      event_callback: complete,
+      event_timeout: 1500
+    });
   }
 
   function startTag() {
@@ -128,7 +141,7 @@
       form.reset();
       status.textContent = 'Richiesta inviata. Ti risponderò via email.';
       leadSuccess = true;
-      sendLeadOnce();
+      sendLeadOnce(() => window.location.assign('grazie-consulenza.html'));
     } catch {
       status.textContent = 'Invio non confermato. Controlla la connessione prima di riprovare.';
     } finally {
