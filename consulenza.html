@@ -34,6 +34,14 @@
 @media(max-width:900px){.consult-situations-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:640px){.consult-situations-grid{grid-template-columns:1fr;gap:10px;margin:18px 0}.consult-situations-grid li{padding:14px}}
 </style><link rel="stylesheet" href="/assets/whatsapp-float.css">
+<script src="assets/consulenza-measurement.js" defer></script>
+<style>
+.measurement-preferences{padding:16px;margin-block:12px;border:1px solid #a6bab1;background:#e7eeea}
+.measurement-preferences p{margin:0 0 8px}
+.measurement-preferences button,.measurement-settings{font:inherit;color:#174c49;background:#fff;border:1px solid #174c49;padding:8px 12px;min-height:44px;cursor:pointer}
+.measurement-preferences button{margin:4px 8px 0 0}
+.contact-form button:disabled{opacity:.65;cursor:wait}
+</style>
 </head>
 <body>
 <a class="skip" href="#contenuto">Vai al contenuto</a>
@@ -42,6 +50,11 @@
 <button class="menu-toggle" aria-controls="navigazione" aria-expanded="false" hidden>Menu <span aria-hidden="true">☰</span></button>
 <nav id="navigazione" aria-label="Principale"><a href="consulenza.html" aria-current="page">Consulenza</a><a href="index.html#metodo">Metodo</a><a href="esempi.html">Esempi</a><a href="index.html#paolo">Paolo</a><a href="index.html#formazione">Formazione</a><a href="index.html#libri">Libri</a><a class="nav-cta" href="#contatti">Richiedi un incontro ↗</a></nav>
 </header>
+<aside class="wrap measurement-preferences" id="measurement-preferences" aria-label="Preferenze di misurazione" hidden>
+<p>Con il tuo consenso usiamo Google Analytics per misurare le visite e le richieste attribuite agli annunci. Puoi cambiare scelta in fondo alla pagina. <a href="privacy.html#misurazione">Informazioni</a></p>
+<button type="button" data-measurement-choice="granted">Accetta misurazione</button>
+<button type="button" data-measurement-choice="denied">Rifiuta misurazione</button>
+</aside>
 <main id="contenuto" class="consult-page">
 <section class="consult-hero wrap" aria-labelledby="titolo">
 <div class="hero-copy"><p class="eyebrow">COACHING TAROLOGICO CON PAOLO MUSETTI</p>
@@ -93,9 +106,10 @@
 <div class="form-field"><label for="contact-message">La tua richiesta *</label><textarea id="contact-message" name="message" rows="5" required minlength="10" maxlength="5000" placeholder="Raccontami brevemente da dove vuoi partire"></textarea></div>
 <p class="form-privacy">I dati saranno utilizzati per rispondere alla tua richiesta. L’invio avviene tramite Formspree: leggi le <a href="privacy.html#modulo" target="_blank" rel="noopener noreferrer">informazioni sul modulo e sui dati</a>.</p>
 <button class="button" type="submit">Invia la richiesta <span aria-hidden="true">↗</span></button><p class="form-service-note">Il servizio applica controlli antispam agli invii.</p>
+<p id="consultation-form-status" role="status"></p>
 </form></div></section>
 </main>
-<footer class="wrap"><div><a class="brand" href="./">Trasformazione.it<span>Coaching Tarologico · Formazione</span></a><p>Immagini. Parole. Possibilità.</p></div><div class="footer-links"><a href="index.html#formazione">Formazione</a><a href="index.html#libri">Libri</a><a href="#contatti">Contatti</a><a href="privacy.html">Privacy e informazioni sul sito</a><span>© <span data-year>2026</span> Trasformazione</span></div></footer>
+<footer class="wrap"><div><a class="brand" href="./">Trasformazione.it<span>Coaching Tarologico · Formazione</span></a><p>Immagini. Parole. Possibilità.</p></div><div class="footer-links"><a href="index.html#formazione">Formazione</a><a href="index.html#libri">Libri</a><a href="#contatti">Contatti</a><a href="privacy.html">Privacy e informazioni sul sito</a><button type="button" class="measurement-settings" id="measurement-settings" hidden>Preferenze di misurazione</button><span>© <span data-year>2026</span> Trasformazione</span></div></footer>
 <script>
 document.querySelectorAll('[data-service]').forEach(link=>link.addEventListener('click',()=>{const topic=document.getElementById('contact-topic');topic.value=link.dataset.service;}));
 </script>
