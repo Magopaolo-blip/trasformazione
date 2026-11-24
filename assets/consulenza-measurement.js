@@ -1,15 +1,29 @@
 (() => {
   const measurementId = 'G-DRH16ND678';
   const preferenceKey = 'trasformazione-measurement-v1';
+  const leadEventKey = 'trasformazione-consultation-lead-sent-v1';
   const panel = document.getElementById('measurement-preferences');
   const settings = document.getElementById('measurement-settings');
   let preference;
   let tagStarted = false;
+  let leadEventSent = false;
 
   try {
     preference = localStorage.getItem(preferenceKey);
   } catch {
     // The choice can still apply to this page if storage is unavailable.
+  }
+
+  function sendLeadOnce() {
+    if (preference !== 'granted' || !tagStarted || leadEventSent) return;
+    try {
+      if (sessionStorage.getItem(leadEventKey) === '1') return;
+      sessionStorage.setItem(leadEventKey, '1');
+    } catch {
+      // Prevent duplicate events within this page if session storage is unavailable.
+    }
+    leadEventSent = true;
+    window.gtag('event', 'generate_lead', { send_to: measurementId });
   }
 
   function startTag() {
@@ -38,6 +52,7 @@
     tag.async = true;
     tag.src = 'https://www.googletagmanager.com/gtag/js?id=' + measurementId;
     document.head.append(tag);
+    sendLeadOnce();
   }
 
   function savePreference(choice) {
@@ -58,6 +73,7 @@
       } else {
         startTag();
       }
+      sendLeadOnce();
     } else if (tagStarted) {
       window['ga-disable-' + measurementId] = true;
       window.gtag('consent', 'update', {
@@ -66,22 +82,29 @@
         ad_user_data: 'denied'
       });
     }
-    panel.hidden = true;
-    settings.focus();
+    if (panel) panel.hidden = true;
+    if (settings) settings.focus();
   }
 
-  settings.hidden = false;
-  settings.addEventListener('click', () => {
-    panel.hidden = false;
-    panel.querySelector('button').focus();
-  });
-  panel.querySelectorAll('[data-measurement-choice]').forEach(button => {
-    button.addEventListener('click', () => savePreference(button.dataset.measurementChoice));
-  });
+  if (settings && panel) {
+    settings.hidden = false;
+    settings.addEventListener('click', () => {
+      panel.hidden = false;
+      panel.querySelector('button').focus();
+    });
+    panel.querySelectorAll('[data-measurement-choice]').forEach(button => {
+      button.addEventListener('click', () => savePreference(button.dataset.measurementChoice));
+    });
+  }
+
   if (preference === 'granted') startTag();
-  panel.hidden = preference === 'granted' || preference === 'denied';
+  if (panel) panel.hidden = preference === 'granted' || preference === 'denied';
+
+  if (document.body.dataset.leadSuccess === 'true') sendLeadOnce();
 
   const form = document.querySelector('.contact-form');
+  if (!form) return;
+
   const submit = form.querySelector('button[type="submit"]');
   const status = document.getElementById('consultation-form-status');
 
@@ -104,9 +127,7 @@
 
       form.reset();
       status.textContent = 'Richiesta inviata. Ti risponderò via email.';
-      if (preference === 'granted' && tagStarted) {
-        window.gtag('event', 'generate_lead', { send_to: measurementId });
-      }
+      sendLeadOnce();
     } catch {
       status.textContent = 'Invio non confermato. Controlla la connessione prima di riprovare.';
     } finally {
