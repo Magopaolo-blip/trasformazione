@@ -1,7 +1,7 @@
 (() => {
   const measurementId = 'G-DRH16ND678';
   const tagManagerId = 'GTM-PT43TMR2';
-  const preferenceKey = 'trasformazione-measurement-v1';
+  const preferenceKey = 'trasformazione-measurement-v2';
   const pendingLeadKey = 'trasformazione-consultation-confirmed-v1';
   const panel = document.getElementById('measurement-preferences');
   const settings = document.getElementById('measurement-settings');
