@@ -1,5 +1,6 @@
 (() => {
   const measurementId = 'G-DRH16ND678';
+  const tagManagerId = 'GTM-PT43TMR2';
   const preferenceKey = 'trasformazione-measurement-v1';
   const pendingLeadKey = 'trasformazione-consultation-confirmed-v1';
   const panel = document.getElementById('measurement-preferences');
@@ -59,6 +60,13 @@
     tag.async = true;
     tag.src = 'https://www.googletagmanager.com/gtag/js?id=' + measurementId;
     document.head.append(tag);
+
+    window.dataLayer.push({ 'gtm.start': Date.now(), event: 'gtm.js' });
+    const container = document.createElement('script');
+    container.async = true;
+    container.src = 'https://www.googletagmanager.com/gtm.js?id=' + tagManagerId;
+    document.head.append(container);
+
     sendLeadOnce();
   }
 
