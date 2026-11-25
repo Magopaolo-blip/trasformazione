@@ -1,13 +1,13 @@
 (() => {
   const measurementId = 'G-DRH16ND678';
   const preferenceKey = 'trasformazione-measurement-v1';
-  const leadEventKey = 'trasformazione-consultation-lead-sent-v1';
+  const pendingLeadKey = 'trasformazione-consultation-confirmed-v1';
   const panel = document.getElementById('measurement-preferences');
   const settings = document.getElementById('measurement-settings');
   let preference;
   let tagStarted = false;
   let leadEventSent = false;
-  let leadSuccess = document.body.dataset.leadSuccess === 'true';
+  let leadSuccess = consumeConfirmedLead();
 
   try {
     preference = localStorage.getItem(preferenceKey);
@@ -15,29 +15,22 @@
     // The choice can still apply to this page if storage is unavailable.
   }
 
-  function sendLeadOnce(onComplete) {
-    const complete = () => {
-      if (typeof onComplete === 'function') onComplete();
-    };
-    if (!leadSuccess || preference !== 'granted' || !tagStarted || leadEventSent) {
-      complete();
-      return;
-    }
+  function consumeConfirmedLead() {
+    if (document.body.dataset.consultationConfirmation !== 'true') return false;
     try {
-      if (sessionStorage.getItem(leadEventKey) === '1') {
-        complete();
-        return;
-      }
-      sessionStorage.setItem(leadEventKey, '1');
+      const confirmed = sessionStorage.getItem(pendingLeadKey) === '1';
+      sessionStorage.removeItem(pendingLeadKey);
+      return confirmed;
     } catch {
-      // Prevent duplicate events within this page if session storage is unavailable.
+      return false;
     }
+  }
+
+  function sendLeadOnce() {
+    if (!leadSuccess || preference !== 'granted' || !tagStarted || leadEventSent) return;
     leadEventSent = true;
-    window.gtag('event', 'generate_lead', {
-      send_to: measurementId,
-      event_callback: complete,
-      event_timeout: 1500
-    });
+    window.gtag('event', 'generate_lead', { send_to: measurementId });
+    window.dataLayer.push({ event: 'consultation_lead_confirmed' });
   }
 
   function startTag() {
@@ -113,8 +106,6 @@
 
   if (preference === 'granted') startTag();
   if (panel) panel.hidden = preference === 'granted' || preference === 'denied';
-  sendLeadOnce();
-
   const form = document.querySelector('.contact-form');
   if (!form) return;
 
@@ -140,8 +131,19 @@
 
       form.reset();
       status.textContent = 'Richiesta inviata. Ti risponderò via email.';
-      leadSuccess = true;
-      sendLeadOnce(() => window.location.assign('grazie-consulenza.html'));
+      if (preference === 'granted') {
+        try {
+          // Carry the confirmed submission across the redirect in this tab only.
+          sessionStorage.setItem(pendingLeadKey, '1');
+        } catch {
+          // Keep the confirmation visible and measure in place if storage is unavailable.
+          leadSuccess = true;
+          leadEventSent = false;
+          sendLeadOnce();
+          return;
+        }
+      }
+      window.location.assign('grazie-consulenza.html');
     } catch {
       status.textContent = 'Invio non confermato. Controlla la connessione prima di riprovare.';
     } finally {
